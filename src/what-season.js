@@ -1,8 +1,8 @@
 const CustomError = require("../extensions/custom-error");
 
-module.exports = function getSeason(/* date */) {
+module.exports = function getSeason(date) {
   if (!date) return 'Unable to determine the time of year!';
-
+  if (!+date) throw new Error('Error');
   switch (date.getUTCMonth()) {
     case 0: return "winter";
     case 1: return "winter";
@@ -17,4 +17,4 @@ module.exports = function getSeason(/* date */) {
     case 10: return "fall";
     case 11: return "winter";
   }
-};
+}
